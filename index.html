@@ -156,11 +156,49 @@ h1 {
     <h1>RuPaul's Drag Race Simulator</h1>
     <button id="continueButton">Start Season</button>
     
+    <!-- Cast Selection Screen -->
+<div class="announcement" id="castSelectionScreen">
+  <h2>Select a Cast</h2>
+  <button class="castSelectButton" onclick="selectCast('Season 1')">Season 1</button>
+  <button class="castSelectButton" onclick="selectCast('Season 2')">Season 2</button>
+  <button class="castSelectButton" onclick="selectCast('Season 3')">Season 3</button>
+  <!-- Add more buttons for additional seasons -->
+</div>
+
+<!-- Add this style to your existing <style> tag -->
+<style>
+  .castSelectButton {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 10px;
+  }
+  .castSelectButton:hover {
+    background-color: #45a049; /* Darker green */
+  }
+  
+  #doublePremiereToggle {
+    margin-top: 20px;
+  }
+  label {
+    margin-right: 10px;
+  }
+</style>
     <!-- Cast Screen -->
     <div class="announcement" id="castScreen" style="display: none;">
       <!-- Content for displaying the cast will go here -->
     </div>
-  
+    <div id="challengeSelectionContainer" style="display: none;">
+      <h2>Select a Challenge</h2>
+      <select id="challengeDropdown">
+        <!-- Options will be dynamically added here -->
+      </select>
+      <button id="confirmChallengeButton">Confirm</button>
+    </div>
     <!-- Challenge Announcement Screen -->
     <div class="announcement" id="challengeScreen" style="display: block;">
       <div id="challengeAnnouncement">

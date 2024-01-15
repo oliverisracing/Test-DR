@@ -28,32 +28,81 @@ class Queen {
   }
 }
 
-
+//acting, improv, comedy, dance, design, rusical, makeover, branding, lipsync, image
 // Now, when you create a new Queen, you can specify their image like so:
 let primarina = new Queen('Primarina', 8, 7, 10, 10, 11, 12, 12, 8, 9, 'https://img.pokemondb.net/sprites/sword-shield/normal/primarina.png');
-let gardevoir = new Queen('Gardevoir', 7, 13, 13, 10, 13, 11, 13, 13, 13, 'https://img.pokemondb.net/sprites/sword-shield/normal/gardevoir.png');
+let gardevoir = new Queen('Gardevoir', 10, 13, 13, 10, 13, 11, 13, 13, 13, 'https://img.pokemondb.net/sprites/sword-shield/normal/gardevoir.png');
 let lopunny = new Queen('Lopunny', 10, 8, 9, 16, 8, 14, 10, 10, 15, 'https://img.pokemondb.net/sprites/sword-shield/normal/lopunny.png');
 let milotic = new Queen('Milotic', 11, 11, 10, 7, 15, 10, 15, 7, 12, 'https://img.pokemondb.net/sprites/sword-shield/normal/milotic.png');
 let mismagius = new Queen('Mismagius', 9, 12, 11, 14, 9, 7, 11, 12, 11, 'https://img.pokemondb.net/sprites/black-white/normal/mismagius.png');
 let jynx = new Queen('Jynx', 6, 7, 7, 8, 7, 7, 5, 5, 11, 'https://img.pokemondb.net/sprites/sword-shield/normal/jynx.png');
 let lapras = new Queen('Lapras', 10, 10, 10, 4, 8, 14, 9, 6, 10, 'https://img.pokemondb.net/sprites/sword-shield/normal/lapras.png');
-let blissey = new Queen('Blissey', 13, 15, 14, 9, 6, 11, 6, 11, 9, 'https://img.pokemondb.net/sprites/sword-shield/normal/blissey.png');
+let blissey = new Queen('Blissey', 13, 15, 14, 9, 8, 11, 8, 11, 9, 'https://img.pokemondb.net/sprites/sword-shield/normal/blissey.png');
 let hatterene = new Queen('Hatterene', 11, 11, 8, 8, 10, 14, 8, 15, 13, 'https://img.pokemondb.net/sprites/sword-shield/normal/hatterene.png');
 let vespiqueen = new Queen('Vespiqueen', 15, 11, 9, 9, 11, 13, 13, 6, 7, 'https://img.pokemondb.net/sprites/sword-shield/normal/vespiquen.png');
 let salazzle = new Queen('Salazzle', 4, 6, 9, 10, 10, 10, 10, 6, 7, 'https://img.pokemondb.net/sprites/sword-shield/normal/salazzle.png');
 let mawile = new Queen('Mawile', 7, 8, 9, 9, 11, 13, 13, 8, 8, 'https://img.pokemondb.net/sprites/sword-shield/normal/mawile.png');
 let gothitelle = new Queen('Ghotitelle', 12, 12, 6, 9, 7, 7, 10, 6, 7, 'https://img.pokemondb.net/sprites/sword-shield/normal/gothitelle.png');
 let mrmime = new Queen('Mr. Mime', 15, 10, 8, 3, 9, 14, 10, 11, 10, 'https://img.pokemondb.net/sprites/sword-shield/normal/mr-mime.png');
+let malamar = new Queen('Malamar', 10, 10, 10, 10, 10, 10, 10, 10, 10, 'https://img.pokemondb.net/sprites/sword-shield/normal/malamar.png');
 
+let castSeason1 = [primarina, gardevoir, lopunny, milotic, mismagius, jynx, lapras, blissey, hatterene, vespiqueen, salazzle, mawile, gothitelle, mrmime, malamar].map(queen => ({ ...queen, isActive: true }));
 
-let cast = [primarina, gardevoir, lopunny, milotic, mismagius, jynx, lapras, blissey, hatterene, vespiqueen, salazzle, mawile, gothitelle, mrmime].map(queen => ({ ...queen, isActive: true }));
+let pikachu = new Queen('Pikachu', 10, 9, 8, 13, 10, 12, 11, 10, 14, 'https://img.pokemondb.net/sprites/sword-shield/normal/pikachu.png');
+let charizard = new Queen('Charizard', 12, 11, 10, 15, 13, 14, 12, 11, 13, 'https://img.pokemondb.net/sprites/sword-shield/normal/charizard.png');
+let bulbasaur = new Queen('Bulbasaur', 8, 10, 11, 12, 9, 13, 10, 9, 11, 'https://img.pokemondb.net/sprites/sword-shield/normal/bulbasaur.png');
+let squirtle = new Queen('Squirtle', 9, 10, 12, 11, 12, 10, 13, 8, 10, 'https://img.pokemondb.net/sprites/sword-shield/normal/squirtle.png');
+let eevee = new Queen('Eevee', 11, 12, 9, 14, 11, 11, 12, 13, 12, 'https://img.pokemondb.net/sprites/sword-shield/normal/eevee.png');
+let snorlax = new Queen('Snorlax', 14, 13, 13, 9, 8, 15, 7, 6, 9, 'https://img.pokemondb.net/sprites/sword-shield/normal/snorlax.png');
+let psyduck = new Queen('Psyduck', 7, 8, 10, 10, 13, 9, 14, 7, 8, 'https://img.pokemondb.net/sprites/sword-shield/normal/psyduck.png');
+let arcanine = new Queen('Arcanine', 13, 14, 12, 16, 10, 13, 11, 12, 15, 'https://img.pokemondb.net/sprites/sword-shield/normal/arcanine.png');
+let gengar = new Queen('Gengar', 12, 11, 13, 14, 12, 12, 15, 13, 14, 'https://img.pokemondb.net/sprites/sword-shield/normal/gengar.png');
+let dragonite = new Queen('Dragonite', 15, 14, 11, 12, 15, 14, 13, 10, 12, 'https://img.pokemondb.net/sprites/sword-shield/normal/dragonite.png');
+let machamp = new Queen('Machamp', 14, 15, 14, 10, 9, 12, 10, 9, 11, 'https://img.pokemondb.net/sprites/sword-shield/normal/machamp.png');
+
+let castSeason2 = [pikachu, charizard, bulbasaur, squirtle, eevee, snorlax, psyduck, arcanine, gengar, dragonite, machamp].map(queen => ({ ...queen, isActive: true }));
+
+//acting, improv, comedy, dance, design, rusical, makeover, branding, lipsync, image
+let denali = new Queen("Denali Foxx", 7, 8, 10, 13, 8, 11, 5, 10, 15,"https://static.wikia.nocookie.net/logosrupaulsdragrace/images/3/36/DenaliS13CastMug.jpg/revision/latest/scale-to-width-down/105?cb=20210902181626");
+let eliott = new Queen("Elliott with 2 Ts", 6, 6, 5, 9, 8, 8, 12, 8, 9,"https://static.wikia.nocookie.net/logosrupaulsdragrace/images/0/0b/ElliottWith2T%27sS13CastMug.jpg/revision/latest/scale-to-width-down/105?cb=20210902181745");
+let gottmik = new Queen("Gottmik", 9, 11, 13, 4, 12, 13, 6, 9, 9,"https://static.wikia.nocookie.net/logosrupaulsdragrace/images/b/bd/GottmikS13CastMug.jpg/revision/latest/scale-to-width-down/105?cb=20210902181947");
+let joey = new Queen("Joey Jay", 6, 6, 5, 5, 5, 5, 8, 7, 8,"https://static.wikia.nocookie.net/logosrupaulsdragrace/images/a/a7/JoeyJayS13CastMug.jpg/revision/latest/scale-to-width-down/105?cb=20210902182023");
+let kahmora = new Queen("Kahmora Hall", 3, 3, 5, 6, 6, 10, 5, 8, 6,"https://static.wikia.nocookie.net/logosrupaulsdragrace/images/e/e5/KahmoraHallS13CastMug.jpg/revision/latest/scale-to-width-down/105?cb=20210902182128");
+let kandy = new Queen("Kandy Muse", 9, 11, 14, 7, 6, 5, 15, 13, 9,"https://static.wikia.nocookie.net/logosrupaulsdragrace/images/6/63/KandyMuseS13CastMug.jpg/revision/latest/scale-to-width-down/105?cb=20210902182209");
+let lalari = new Queen("LaLa Ri", 6, 6, 6, 9, 1, 4, 15, 10, 8,"https://static.wikia.nocookie.net/logosrupaulsdragrace/images/e/e0/LaLaRiS13CastMug.jpg/revision/latest/scale-to-width-down/105?cb=20210902182255");
+let liv = new Queen("Liv Lux Miyake-Mugler", 8, 11, 9, 11, 8, 12, 10, 7, 14,"https://static.wikia.nocookie.net/logosrupaulsdragrace/images/4/4f/OliviaLuxS13CastMug.jpg/revision/latest/scale-to-width-down/105?cb=20210902182353");
+let rose = new Queen("Rosé", 11, 12, 12, 11, 8, 8, 8, 15, 25,"https://static.wikia.nocookie.net/logosrupaulsdragrace/images/7/74/Ros%C3%A9S13CastMug.jpg/revision/latest/scale-to-width-down/105?cb=20210902182428");
+let symone = new Queen("Symone", 15, 9, 8, 10, 8, 5, 13, 14, 14,"https://static.wikia.nocookie.net/logosrupaulsdragrace/images/7/7d/SymoneS13CastMug.jpg/revision/latest/scale-to-width-down/105?cb=20211216235826");
+let tamisha = new Queen("Tamisha Iman", 6, 6, 6, 6, 3, 6, 10, 8, 5,"https://static.wikia.nocookie.net/logosrupaulsdragrace/images/3/35/TamishaImanS13CastMug.jpg/revision/latest/scale-to-width-down/105?cb=20210902182545");
+let tina = new Queen("Tina Burner", 8, 8, 7, 7, 5, 5, 7, 10, 6,"https://static.wikia.nocookie.net/logosrupaulsdragrace/images/4/44/TinaBurnerS13CastMug.jpg/revision/latest/scale-to-width-down/105?cb=20210902182624");
+let utica = new Queen("Utica Queen", 6, 6, 6, 4, 15, 11, 10, 6, 9,"https://static.wikia.nocookie.net/logosrupaulsdragrace/images/d/dc/UticaQueenS13CastMug.jpg/revision/latest/scale-to-width-down/105?cb=20210902182704");
+let us_season13 = [denali, eliott, gottmik, joey, kahmora, kandy, lalari, liv, rose, symone, tamisha, tina, utica];
+
+// Global cast variable
+let cast = [];
+
+function calculateConsecutiveSafeStreak(trackRecord) {
+  let currentStreak = 0;
+  let maxStreak = 0;
+
+  for (let i = 0; i < trackRecord.length; i++) {
+    if (trackRecord[i] === 'SAFE') {
+      currentStreak++;
+      maxStreak = Math.max(maxStreak, currentStreak);
+    } else {
+      currentStreak = 0;
+    }
+  }
+
+  return maxStreak;
+}
 
 // Function to determine which queens are in the current episode
 function getQueensInEpisode(allQueens) {
     // For simplicity, let's assume all active queens participate in each episode
     return allQueens.filter(queen => queen.isActive);
   }
-  function displayCast(cast) {
+  function displayCast(cast, episode) {
     console.log('displayCast function called'); // Log when the function is called
   
     // Get the container where the cast will be displayed
@@ -77,9 +126,6 @@ function getQueensInEpisode(allQueens) {
     queensList.style.listStyleType = 'none';
     queensList.style.padding = '0';
     cast.forEach((queen, index) => {
-      // Debugging logs to check the properties
-      console.log(`Queen: ${queen.name}, Last Placement: ${queen.lastPlacement}, Winning Streak: ${queen.winningStreak}, Eliminated: ${queen.eliminated}`);
-  
       // Create a list item for each queen
       const queenItem = document.createElement('li');
       queenItem.style.display = 'flex'; // Use flexbox to align items side by side
@@ -97,6 +143,7 @@ function getQueensInEpisode(allQueens) {
       queenImage.src = queen.image; // Set the source of the image
       queenImage.alt = `Image of ${queen.name}`; // Set the alt text
       queenImage.style.width = '100px'; // Set a fixed width for the image
+      queenImage.style.borderRadius = '10px';
       queenImage.style.height = 'auto'; // Maintain the aspect ratio
       queenImage.style.marginRight = '1em'; // Add space between the image and the name
   
@@ -108,10 +155,14 @@ function getQueensInEpisode(allQueens) {
       let message = `${queen.name}, ready to take on the world!`; // Default message
 
         // Calculate safeStreak, totalWins, and bottomAppearances for each queen
-        let safeStreak = queen.trackRecord.filter(placement => placement === 'SAFE').length;
+        let safeStreak = calculateConsecutiveSafeStreak(queen.trackRecord);
         let totalWins = queen.trackRecord.filter(placement => placement === 'WIN').length;
         let bottomAppearances = queen.trackRecord.filter(placement => placement === 'BTM2').length;
       // Update the message based on the queen's performance
+          // Special message for episode one
+    if (episode === 1) {
+      message = `${queen.name}, welcome to the race! Let's see what you've got!`;
+    } 
       if (safeStreak === queen.trackRecord.length) {
         message = `${queen.name} has been consistently safe, but it's time to stand out from the crowd.`;
       } else if (totalWins > 1 && totalWins === Math.max(...cast.map(q => q.trackRecord.filter(p => p === 'WIN').length))) {
@@ -120,8 +171,6 @@ function getQueensInEpisode(allQueens) {
         message = `${queen.name} has been in the bottom ${bottomAppearances} times, it's do or die time for her.`;
       } else if (safeStreak > 2) {
         message = `${queen.name} has been flying under the radar with ${safeStreak} consecutive safe placements.`;
-      } else {
-        message = `${queen.name} is ready to take on the next challenge with full force.`;
       } 
       if (queen.totalWins === 1 && queen.bottomAppearances === 0) {
         message = `${queen.name} has tasted victory once and is hungry for more.`;
@@ -129,15 +178,9 @@ function getQueensInEpisode(allQueens) {
         message = `${queen.name} has been in the bottom once, a wake-up call to step up her game.`;
       } else if (queen.safeStreak === queen.trackRecord.length - 1 && queen.lastPlacement === 'WIN') {
         message = `${queen.name} has been playing it safe, but her recent win could be the start of a rise to the top.`;
-      } else if (queen.trackRecord.every(placement => placement === 'SAFE' || placement === 'WIN')) {
-        message = `${queen.name} has been consistently strong, never facing the threat of elimination.`;
-      } else if (queen.trackRecord.slice(-2).every(placement => placement === 'BTM2')) {
-        message = `${queen.name} has been in the bottom for the last two weeks, she's on thin ice.`;
       } else if (queen.trackRecord.includes('WIN') && queen.trackRecord.includes('BTM2') && queen.totalWins === queen.bottomAppearances) {
         message = `${queen.name} has had a rollercoaster journey, with equal highs and lows.`;
-      } else if (queen.trackRecord.length > 3 && !queen.trackRecord.slice(-3).includes('SAFE')) {
-        message = `${queen.name} hasn't been safe for a while, always at one extreme or the other.`;
-      }           
+      }          
       // Add more conditions as needed for other track records
   
       queenName.innerText = message;
@@ -159,7 +202,7 @@ function getQueensInEpisode(allQueens) {
 function calculatePerformance(queen, challengeStat) {
   let stat = queen[challengeStat];
   // Increase the range of the random factor to add more randomness
-  let randomFactor = (Math.random() * 8) - 4; // Now between -2 and 2
+  let randomFactor = (Math.random() * 6) - 3; // Now between -2 and 2
   let performanceScore = stat + randomFactor;
   // Log the queen's name, the challenge stat, and the performance score
   console.log(queen.name + ' scored ' + performanceScore + ' in ' + challengeStat);
@@ -204,6 +247,23 @@ function simulateChallenge(queens, challenge) {
 let activeQueens = cast.map(queen => ({ ...queen, isActive: true }));
 
 function determinePlacements(queens) {
+  // Introduce a handicap based on the number of wins
+  queens.forEach(queen => {
+    let originalScore = queen.performanceScore;
+    if (queen.totalWins > 0) {
+      // Apply a handicap by reducing the performance score
+      // The more wins a queen has, the larger the handicap
+      let handicapScore = queen.totalWins * 1.05; // Adjust the multiplier as needed
+      queen.performanceScore -= handicapScore;
+
+      // Log the performance scores with the formula
+      console.log(`${queen.name}: Original Score (${originalScore}) - Handicap (${handicapScore}) = ${queen.performanceScore}`);
+    } else {
+      // Log the performance scores without handicap for queens with no wins
+      console.log(`${queen.name}: Original Score (${originalScore}) - Handicap (0) = ${queen.performanceScore}`);
+    }
+  });
+
   // Sort queens by their performance scores in descending order
   queens.sort((a, b) => b.performanceScore - a.performanceScore);
 
@@ -234,11 +294,6 @@ function determinePlacements(queens) {
       activeQueens[activeQueens.length - 1].currentPlacement = 'BTM2';
     }
     
-  // Log the trackRecord before update
-  console.log('Before update:');
-  activeQueens.forEach(queen => {
-    console.log(queen.name, 'Track Record:', queen.trackRecord.join(', '));
-  });
 
   // Update track record for active queens
   activeQueens.forEach(queen => {
@@ -254,12 +309,6 @@ function determinePlacements(queens) {
     queen.safeStreak = safeStreak;
     queen.totalWins = totalWins;
     queen.bottomAppearances = bottomAppearances;
-  });
-
-  // Log the trackRecord after update
-  console.log('After update:');
-  activeQueens.forEach(queen => {
-    console.log(queen.name, 'Track Record:', queen.trackRecord.join(', '));
   });
 
   // Now update lastPlacement and winningStreak
@@ -294,14 +343,9 @@ function determinePlacements(queens) {
           break;
       }
     });
-  // Log the placements and additional stats for debugging
-  activeQueens.forEach(queen => {
-    console.log(queen.name, 'Placement:', queen.currentPlacement, 'Last Placement:', queen.lastPlacement, 'Safe Streak:', queen.safeStreak, 'Total Wins:', queen.totalWins, 'Bottom Appearances:', queen.bottomAppearances);
-  });
 }
 
 // Initialize a flag to track if the double shantay has been used this season
-let seasonDoubleShantayUsed = false;
 function lipsyncAndElimination(queens) {
   // Find the bottom queens
   let bottomQueens = queens.filter(queen => queen.currentPlacement === 'BTM2');
@@ -319,12 +363,6 @@ function lipsyncAndElimination(queens) {
 
     // Sort bottom queens by lipsync score
     bottomQueens.sort((a, b) => b.lipsyncScore - a.lipsyncScore);
-
-    // Check for double shantay condition
-    if (!seasonDoubleShantayUsed && bottomQueens[0].lipsyncScore > 10 && bottomQueens[1].lipsyncScore > 10) {
-      seasonDoubleShantayUsed = true; // Set the flag to true as the double shantay has been used
-      return { doubleShantay: true }; // Return an object indicating a double shantay
-    }
 
     // The queen with the lower lipsync score gets eliminated
     let eliminatedQueen = bottomQueens.pop(); // Use pop to get the last element (lowest score)
@@ -557,7 +595,31 @@ announcePlacements(queens) {
   // Filter out only active queens
   let activeQueens = queens.filter(queen => queen.isActive);
 
-  console.log('Current Challenge:', currentChallenge.name); // Add this line to debug
+  // Custom sort function to order queens by placement
+  activeQueens.sort((a, b) => {
+    const placementOrder = ['HIGH', 'WIN', 'SAFE', 'LOW', 'BTM2'];
+    return placementOrder.indexOf(a.currentPlacement) - placementOrder.indexOf(b.currentPlacement);
+  });
+
+  // After sorting, manually adjust the order to match the desired sequence
+  // Find the index of the first HIGH and first BTM2 queens
+  let firstHighIndex = activeQueens.findIndex(queen => queen.currentPlacement === 'HIGH');
+  let firstBtm2Index = activeQueens.findIndex(queen => queen.currentPlacement === 'BTM2');
+
+  // Move the WIN queen to the second position
+  let winQueen = activeQueens.find(queen => queen.currentPlacement === 'WIN');
+  activeQueens = activeQueens.filter(queen => queen.currentPlacement !== 'WIN');
+  activeQueens.splice(1, 0, winQueen);
+
+  // Move the first HIGH queen to the first position
+  let firstHighQueen = activeQueens.splice(firstHighIndex, 1)[0];
+  activeQueens.unshift(firstHighQueen);
+
+  // Move the first BTM2 queen to the last position
+  let firstBtm2Queen = activeQueens.splice(firstBtm2Index, 1)[0];
+  activeQueens.push(firstBtm2Queen);
+
+  // Now create list items for each queen in the sorted order
   activeQueens.forEach(queen => {
     // Create a list item for each queen's placement
     const listItem = document.createElement('li');
@@ -742,7 +804,7 @@ function handleContinue() {
         break;
       case states.DISPLAY_CAST:
         hideAllScreens();
-        displayCast(queensInEpisode);
+        displayCast(queensInEpisode, episode);
         document.getElementById('castScreen').style.display = 'block';
         currentState = states.ANNOUNCE_CHALLENGE;
         break;
@@ -775,7 +837,7 @@ function handleContinue() {
           if (lipsyncResult && lipsyncResult.winner && lipsyncResult.eliminatedQueen) {
             host.announceLipsyncResults(lipsyncResult.winner, lipsyncResult.eliminatedQueen);
             updateTrackRecord(cast, episode); // Update the track record table here
-            displayCast(queensInEpisode); // Display cast with updated comments
+            displayCast(queensInEpisode, episode); // Display cast with updated comments
           } else {
             console.log('Lipsync battle did not occur or there was an error.');
           }
@@ -1032,3 +1094,36 @@ function sortQueensByPlacement(queens) {
     // Disable the 'continue' button
     document.getElementById('continueButton').disabled = true;
   }
+
+  // Function to update the global cast variable
+function selectCast(season) {
+  switch(season) {
+    case 'Season 1':
+      cast = castSeason1.map(queen => ({ ...queen, isActive: true }));
+      break;
+    case 'Season 2':
+      cast = castSeason2.map(queen => ({ ...queen, isActive: true }));
+      break;
+    case 'Season 3':
+      cast = us_season13.map(queen => ({ ...queen, isActive: true }));  
+    // ... more cases for additional seasons ...
+    default:
+      console.error('Invalid season selection');
+  }
+  // Hide the cast selection screen
+  document.getElementById('castSelectionScreen').style.display = 'none';
+
+  // Start the simulation with the selected cast
+  simulateSeason(cast);
+}
+
+// Function to create the cast selection screen
+function createCastSelectionScreen() {
+  let selectionScreen = document.createElement('div');
+  // Append the selection screen to the document body or a specific container
+  document.body.appendChild(selectionScreen);
+}
+
+// Call this function when the page loads or when you want to display the cast selection
+createCastSelectionScreen();
+
