@@ -1,8 +1,14 @@
 // Initialize the episode number
 // Define a global variable for the episode number
+// Variable global para almacenar si la temporada tendrá una doble premiere
+let isDoublePremiere = false;
+// Variable global para rastrear si ya ha ocurrido un doble shantay
+let doubleShantayHappened = false;
+let groupOne = [];
+let groupTwo = [];
 let episode = 1;
 class Queen {
-  constructor(name, acting, improv, comedy, dance, design, rusical, makeover, branding, lipsync, image) {
+  constructor(name, acting, improv, comedy, dance, design, rusical, makeover, branding, lipsync, music, image) {
     this.name = name;
     this.acting = acting;
     this.improv = improv;
@@ -13,6 +19,7 @@ class Queen {
     this.makeover = makeover;
     this.branding = branding;
     this.lipsync = lipsync;
+    this.music = music;
     this.image = image;
     this.favoritismPoints = 0;
     this.isActive = true;
@@ -30,21 +37,21 @@ class Queen {
 
 //acting, improv, comedy, dance, design, rusical, makeover, branding, lipsync, image
 // Now, when you create a new Queen, you can specify their image like so:
-let primarina = new Queen('Primarina', 8, 7, 10, 10, 11, 12, 12, 8, 9, 'https://img.pokemondb.net/sprites/sword-shield/normal/primarina.png');
-let gardevoir = new Queen('Gardevoir', 10, 13, 13, 10, 13, 11, 13, 13, 13, 'https://img.pokemondb.net/sprites/sword-shield/normal/gardevoir.png');
-let lopunny = new Queen('Lopunny', 10, 8, 9, 16, 8, 14, 10, 10, 15, 'https://img.pokemondb.net/sprites/sword-shield/normal/lopunny.png');
-let milotic = new Queen('Milotic', 11, 11, 10, 7, 15, 10, 15, 7, 12, 'https://img.pokemondb.net/sprites/sword-shield/normal/milotic.png');
-let mismagius = new Queen('Mismagius', 9, 12, 11, 14, 9, 7, 11, 12, 11, 'https://img.pokemondb.net/sprites/black-white/normal/mismagius.png');
-let jynx = new Queen('Jynx', 6, 7, 7, 8, 7, 7, 5, 5, 11, 'https://img.pokemondb.net/sprites/sword-shield/normal/jynx.png');
-let lapras = new Queen('Lapras', 10, 10, 10, 4, 8, 14, 9, 6, 10, 'https://img.pokemondb.net/sprites/sword-shield/normal/lapras.png');
-let blissey = new Queen('Blissey', 13, 15, 14, 9, 8, 11, 8, 11, 9, 'https://img.pokemondb.net/sprites/sword-shield/normal/blissey.png');
-let hatterene = new Queen('Hatterene', 11, 11, 8, 8, 10, 14, 8, 15, 13, 'https://img.pokemondb.net/sprites/sword-shield/normal/hatterene.png');
-let vespiqueen = new Queen('Vespiqueen', 15, 11, 9, 9, 11, 13, 13, 6, 7, 'https://img.pokemondb.net/sprites/sword-shield/normal/vespiquen.png');
-let salazzle = new Queen('Salazzle', 4, 6, 9, 10, 10, 10, 10, 6, 7, 'https://img.pokemondb.net/sprites/sword-shield/normal/salazzle.png');
-let mawile = new Queen('Mawile', 7, 8, 9, 9, 11, 13, 13, 8, 8, 'https://img.pokemondb.net/sprites/sword-shield/normal/mawile.png');
-let gothitelle = new Queen('Ghotitelle', 12, 12, 6, 9, 7, 7, 10, 6, 7, 'https://img.pokemondb.net/sprites/sword-shield/normal/gothitelle.png');
-let mrmime = new Queen('Mr. Mime', 15, 10, 8, 3, 9, 14, 10, 11, 10, 'https://img.pokemondb.net/sprites/sword-shield/normal/mr-mime.png');
-let malamar = new Queen('Malamar', 10, 10, 10, 10, 10, 10, 10, 10, 10, 'https://img.pokemondb.net/sprites/sword-shield/normal/malamar.png');
+let primarina = new Queen('Primarina', 8, 7, 10, 10, 11, 12, 12, 8, 9, 11, 'https://img.pokemondb.net/sprites/sword-shield/normal/primarina.png');
+let gardevoir = new Queen('Gardevoir', 10, 13, 13, 10, 13, 11, 13, 13, 13, 12, 'https://img.pokemondb.net/sprites/sword-shield/normal/gardevoir.png');
+let lopunny = new Queen('Lopunny', 10, 8, 9, 16, 8, 14, 10, 10, 15, 15, 'https://img.pokemondb.net/sprites/sword-shield/normal/lopunny.png');
+let milotic = new Queen('Milotic', 11, 11, 10, 7, 15, 10, 15, 7, 12, 10, 'https://img.pokemondb.net/sprites/sword-shield/normal/milotic.png');
+let mismagius = new Queen('Mismagius', 9, 12, 11, 14, 9, 7, 11, 12, 11, 9, 'https://img.pokemondb.net/sprites/black-white/normal/mismagius.png');
+let jynx = new Queen('Jynx', 6, 7, 7, 8, 7, 7, 5, 5, 11, 4, 'https://img.pokemondb.net/sprites/sword-shield/normal/jynx.png');
+let lapras = new Queen('Lapras', 10, 10, 10, 4, 8, 14, 9, 6, 10, 10, 'https://img.pokemondb.net/sprites/sword-shield/normal/lapras.png');
+let blissey = new Queen('Blissey', 13, 15, 14, 9, 8, 11, 8, 11, 9, 12, 'https://img.pokemondb.net/sprites/sword-shield/normal/blissey.png');
+let hatterene = new Queen('Hatterene', 11, 11, 8, 8, 10, 14, 8, 15, 13, 9, 'https://img.pokemondb.net/sprites/sword-shield/normal/hatterene.png');
+let vespiqueen = new Queen('Vespiqueen', 15, 11, 9, 9, 11, 13, 13, 6, 7, 7, 'https://img.pokemondb.net/sprites/sword-shield/normal/vespiquen.png');
+let salazzle = new Queen('Salazzle', 4, 6, 9, 10, 10, 10, 10, 6, 7, 10, 'https://img.pokemondb.net/sprites/sword-shield/normal/salazzle.png');
+let mawile = new Queen('Mawile', 7, 8, 9, 9, 11, 13, 13, 8, 8, 6, 'https://img.pokemondb.net/sprites/sword-shield/normal/mawile.png');
+let gothitelle = new Queen('Ghotitelle', 12, 12, 6, 9, 7, 7, 10, 6, 7, 9, 'https://img.pokemondb.net/sprites/sword-shield/normal/gothitelle.png');
+let mrmime = new Queen('Mr. Mime', 15, 10, 8, 3, 9, 14, 10, 11, 10, 9, 'https://img.pokemondb.net/sprites/sword-shield/normal/mr-mime.png');
+let malamar = new Queen('Malamar', 10, 10, 10, 10, 10, 10, 10, 10, 10, 6, 'https://img.pokemondb.net/sprites/sword-shield/normal/malamar.png');
 
 let castSeason1 = [primarina, gardevoir, lopunny, milotic, mismagius, jynx, lapras, blissey, hatterene, vespiqueen, salazzle, mawile, gothitelle, mrmime, malamar].map(queen => ({ ...queen, isActive: true }));
 
@@ -103,15 +110,28 @@ function getQueensInEpisode(allQueens) {
     return allQueens.filter(queen => queen.isActive);
   }
   function displayCast(cast, episode) {
-    console.log('displayCast function called'); // Log when the function is called
+
+    // Decide qué grupo de queens mostrar basado en el episodio y si es doble premiere
+    let queensToDisplay = cast;
+    if (isDoublePremiere) {
+      if (episode === 1) {
+        queensToDisplay = groupOne;
+        console.log('Doble premiere activada: Mostrando grupo uno');
+      } else if (episode === 2) {
+        queensToDisplay = groupTwo;
+        console.log('Doble premiere activada: Mostrando grupo dos');
+      }
+    }
   
-    // Get the container where the cast will be displayed
+    console.log('Queens to display:', queensToDisplay.map(queen => queen.name)); // Log the queens being displayed
+  
+    // Obtén el contenedor donde se mostrará el cast
     const castScreen = document.getElementById('castScreen');
   
-    // Clear any existing content
+    // Limpia cualquier contenido existente
     castScreen.innerHTML = '';
   
-    // Create a header for the cast display
+    // Crea un encabezado para la visualización del cast
     const castHeader = document.createElement('h2');
     castHeader.innerText = 'Meet the Queens';
     castHeader.style.textAlign = 'center';
@@ -121,11 +141,13 @@ function getQueensInEpisode(allQueens) {
     castHeader.style.borderRadius = '20px';
     castScreen.appendChild(castHeader);
   
-    // Create a list to display the queens
+    // Crea una lista para mostrar las queens
     const queensList = document.createElement('ul');
     queensList.style.listStyleType = 'none';
     queensList.style.padding = '0';
-    cast.forEach((queen, index) => {
+  
+    // Asegúrate de usar queensToDisplay en lugar de cast para el bucle forEach
+    queensToDisplay.forEach((queen, index) => {
       // Create a list item for each queen
       const queenItem = document.createElement('li');
       queenItem.style.display = 'flex'; // Use flexbox to align items side by side
@@ -199,77 +221,69 @@ function getQueensInEpisode(allQueens) {
   // <div id="castContainer"></div>
 
 // Calculate queen's performance in a challenge
-function calculatePerformance(queen, challengeStat) {
+function calculatePerformance(queen, challengeStat, isActiveForEpisode) {
+  if (!isActiveForEpisode) return; // No calcular si la queen no está activa para el episodio
+
   let stat = queen[challengeStat];
-  // Increase the range of the random factor to add more randomness
-  let randomFactor = (Math.random() * 6) - 3; // Now between -2 and 2
+  let randomFactor = (Math.random() * 6) - 3; // Ahora entre -2 y 2
   let performanceScore = stat + randomFactor;
-  // Log the queen's name, the challenge stat, and the performance score
-  console.log(queen.name + ' scored ' + performanceScore + ' in ' + challengeStat);
   return performanceScore;
 }
 
+
 // Define challenge types
 const challenges = [
-    { name: 'Acting', trait: 'acting', description: 'Queens must deliver Oscar-worthy performances in a scripted drama.' },
-    { name: 'Improv', trait: 'improv', description: 'Unscripted scenes where quick wit and adaptability reign supreme.' },
-    { name: 'Comedy', trait: 'comedy', description: 'Stand-up routines that leave the audience in stitches are the goal.' },
-    { name: 'Dance', trait: 'dance', description: 'A choreographed number that showcases each queens rhythm and grace.' },
-    { name: 'Design', trait: 'design', description: 'Fashion design challenge to create stunning outfits from unconventional materials.' },
-    { name: 'Rusical', trait: 'rusical', description: 'A musical extravaganza where queens sing and dance in a Broadway-style show.' },
-    { name: 'Makeover', trait: 'makeover', description: 'Transforming others into drag superstars through makeup and costume.' },
-    { name: 'Branding', trait: 'branding', description: 'Developing a personal brand and marketing it effectively to stand out.' },
-    { name: 'Snatch', traits: ['comedy', 'improv'], description: 'A celebrity impersonation game that tests queens on humor and impersonation skills.' }
-  ];
+  { name: 'Acting', trait: 'acting', description: 'Queens must deliver Oscar-worthy performances in a scripted drama.' },
+  { name: 'Improv', trait: 'improv', description: 'Unscripted scenes where quick wit and adaptability reign supreme.' },
+  { name: 'Comedy', trait: 'comedy', description: 'Stand-up routines that leave the audience in stitches are the goal.' },
+  { name: 'Dance', trait: 'dance', description: 'A choreographed number that showcases each queens rhythm and grace.' },
+  { name: 'Design', trait: 'design', description: 'Fashion design challenge to create stunning outfits from unconventional materials.' },
+  { name: 'Rusical', trait: 'rusical', description: 'A musical extravaganza where queens sing and dance in a Broadway-style show.' },
+  { name: 'Makeover', trait: 'makeover', description: 'Transforming others into drag superstars through makeup and costume.' },
+  { name: 'Branding', trait: 'branding', description: 'Developing a personal brand and marketing it effectively to stand out.' },
+  { name: 'Snatch', traits: ['comedy', 'improv'], description: 'A celebrity impersonation game that tests queens on humor and impersonation skills.' },
+  { name: 'Girl Group', trait: 'music', description: 'Queens form girl groups to perform a catchy song and choreography, showcasing their musical and teamwork skills.' }
+];
 
 
-function simulateChallenge(queens, challenge) {
-  queens.forEach(queen => {
-    let performanceScore;
-      
-      if (challenge.name === 'Snatch') {
-        // Snatch Game combines comedy and improv traits
-        let comedyScore = calculatePerformance(queen, challenge.traits[0]);
-        let improvScore = calculatePerformance(queen, challenge.traits[1]);
-        performanceScore = (comedyScore + improvScore)/(2); // Two decimal places
+  function simulateChallenge(queens, challenge, episode) {
+    queens.forEach(queen => {
+      // Determina si la queen está activa para el episodio actual
+      let isActiveForEpisode = false;
+      if (isDoublePremiere && (episode === 1 || episode === 2)) {
+        let group = episode === 1 ? groupOne : groupTwo;
+        isActiveForEpisode = group.includes(queen);
       } else {
-        performanceScore = calculatePerformance(queen, challenge.trait).toFixed(2); // Two decimal places
+        isActiveForEpisode = queen.isActive;
       }
-      
-      queen.performanceScore = parseFloat(performanceScore); // Convert string back to number
+  
+      // Solo calcula el performanceScore si la queen está activa para el episodio
+      if (isActiveForEpisode) {
+        let performanceScore;
+        if (challenge.name === 'Snatch') {
+          // Snatch Game combina los rasgos de comedia e improvisación
+          let comedyScore = calculatePerformance(queen, challenge.traits[0], isActiveForEpisode);
+          let improvScore = calculatePerformance(queen, challenge.traits[1], isActiveForEpisode);
+          performanceScore = (comedyScore + improvScore) / 2; // Promedio de los dos scores
+        } else {
+          performanceScore = calculatePerformance(queen, challenge.trait, isActiveForEpisode);
+        }
+        queen.performanceScore = performanceScore;
+      }
     });
   
-    // Sort queens by performance score for placements
+    // Ordena las queens por performanceScore para los placements
     queens.sort((a, b) => b.performanceScore - a.performanceScore);
-  
   }
-// Initialize an array to keep track of active queens
-let activeQueens = cast.map(queen => ({ ...queen, isActive: true }));
-
-function determinePlacements(queens) {
-  // Introduce a handicap based on the number of wins
-  queens.forEach(queen => {
-    let originalScore = queen.performanceScore;
-    if (queen.totalWins > 0) {
-      // Apply a handicap by reducing the performance score
-      // The more wins a queen has, the larger the handicap
-      let handicapScore = queen.totalWins * 1.05; // Adjust the multiplier as needed
-      queen.performanceScore -= handicapScore;
-
-      // Log the performance scores with the formula
-      console.log(`${queen.name}: Original Score (${originalScore}) - Handicap (${handicapScore}) = ${queen.performanceScore}`);
-    } else {
-      // Log the performance scores without handicap for queens with no wins
-      console.log(`${queen.name}: Original Score (${originalScore}) - Handicap (0) = ${queen.performanceScore}`);
+function determinePlacements(queens, episode) {
+  // Filtrar solo las queens activas para el episodio actual
+  let activeQueens = queens.filter(queen => {
+    if (isDoublePremiere && (episode === 1 || episode === 2)) {
+      let group = episode === 1 ? groupOne : groupTwo;
+      return group.includes(queen);
     }
+    return queen.isActive;
   });
-
-  // Sort queens by their performance scores in descending order
-  queens.sort((a, b) => b.performanceScore - a.performanceScore);
-
-  // Filter out only active queens
-  let activeQueens = queens.filter(queen => queen.isActive);
-
   // Assign placements based on the sorted order and number of active queens
     if (activeQueens.length > 5) {
       activeQueens[0].currentPlacement = 'WIN';
@@ -323,59 +337,95 @@ function determinePlacements(queens) {
       queen.winningStreak = 0; // Reset winning streak if the queen didn't win
     }
   });
-    // Assign favoritism points based on placements
-    activeQueens.forEach(queen => {
-      switch (queen.currentPlacement) {
-        case 'WIN':
-          queen.favoritismPoints += 5;
-          break;
-        case 'HIGH':
-          queen.favoritismPoints += 1;
-          break;
-        case 'SAFE':
-          queen.favoritismPoints += 0;
-          break;
-        case 'LOW':
-          queen.favoritismPoints -= 2;
-          break;
-        case 'BTM2':
-          queen.favoritismPoints -= 4;
-          break;
-      }
-    });
 }
 
+// Llama a esta función después de los resultados del lipsync para asignar los puntos de favoritismo
+function assignFavoritismPointsAfterLipsync(activeQueens) {
+  activeQueens.forEach(queen => {
+    switch (queen.currentPlacement) {
+      case 'WIN':
+        queen.favoritismPoints += 5;
+        break;
+      case 'HIGH':
+        queen.favoritismPoints += 1;
+        break;
+      case 'SAFE':
+        queen.favoritismPoints += 0;
+        break;
+      case 'LOW':
+        queen.favoritismPoints -= 2;
+        break;
+      case 'BTM2':
+        queen.favoritismPoints -= 4;
+        break;
+    }
+  });
+}
+// Llama a esta función después de los resultados del lipsync para asignar los puntos de favoritismo
+function assignFavoritismPointsAfterLipsync(activeQueens) {
+  activeQueens.forEach(queen => {
+    switch (queen.currentPlacement) {
+      case 'WIN':
+        queen.favoritismPoints += 5;
+        break;
+      case 'HIGH':
+        queen.favoritismPoints += 1;
+        break;
+      case 'SAFE':
+        queen.favoritismPoints += 0;
+        break;
+      case 'LOW':
+        queen.favoritismPoints -= 2;
+        break;
+      case 'BTM2':
+        queen.favoritismPoints -= 4;
+        break;
+    }
+  });
+}
 // Initialize a flag to track if the double shantay has been used this season
 function lipsyncAndElimination(queens) {
-  // Find the bottom queens
+  // Encuentra las reinas en el fondo
   let bottomQueens = queens.filter(queen => queen.currentPlacement === 'BTM2');
   
-  // Ensure there are at least two queens in the bottom before proceeding
+  // Asegúrate de que haya al menos dos reinas en el fondo antes de continuar
   if (bottomQueens.length > 1) {
-    // Calculate lipsync scores, considering favoritism points and a small random factor
+    // Calcula los puntajes de lipsync, considerando puntos de favoritismo y un pequeño factor aleatorio
     bottomQueens.forEach(queen => {
-      let randomFactor = Math.random() * 2 - 1;
-      queen.lipsyncScore = queen.lipsync + (queen.favoritismPoints) + randomFactor;
+      let randomFactor = Math.random() * 2 - 1; // Factor aleatorio entre -1 y 1
+      queen.lipsyncScore = queen.lipsync + queen.favoritismPoints + randomFactor;
       
-      // Log the detailed breakdown of the lipsync score
-      console.log(`${queen.name}: Lipsync (${queen.lipsync}) + Favoritism (${queen.favoritismPoints}) + Random (${randomFactor.toFixed(2)}) = ${queen.lipsyncScore.toFixed(2)}`);
+      // Registra el desglose completo del puntaje de lipsync
+      console.log(`${queen.name} puntaje de lipsync: ${queen.lipsyncScore.toFixed(2)} (Habilidad de lipsync: ${queen.lipsync}, Puntos de favoritismo: ${queen.favoritismPoints}, Factor aleatorio: ${randomFactor.toFixed(2)})`);
     });
 
-    // Sort bottom queens by lipsync score
+    // Ordena las reinas del fondo por puntaje de lipsync
     bottomQueens.sort((a, b) => b.lipsyncScore - a.lipsyncScore);
 
-    // The queen with the lower lipsync score gets eliminated
-    let eliminatedQueen = bottomQueens.pop(); // Use pop to get the last element (lowest score)
-    eliminatedQueen.isActive = false; // Update isActive status to false for the eliminated queen
-    eliminatedQueen.currentPlacement = 'ELIM'; // Update current placement to 'ELIM'
-    eliminatedQueen.trackRecord[eliminatedQueen.trackRecord.length - 1] = 'ELIM'; // Update the track record to 'ELIM'
+      // Después de determinar el resultado del lipsync, asigna los puntos de favoritismo
+  assignFavoritismPointsAfterLipsync(queens);
 
-    return { winner: bottomQueens[0], eliminatedQueen }; // Return the winner and eliminated queen
+    // Verifica si las puntuaciones son lo suficientemente altas para un doble shantay
+    if (!doubleShantayHappened && bottomQueens[0].lipsyncScore > 7 && bottomQueens[1].lipsyncScore > 7) {
+      // Marca que ya ha ocurrido un doble shantay
+      doubleShantayHappened = true;
+      // Registra un mensaje especial para el doble shantay
+      console.log('DOUBLE SHANTAY!!!!!!!!!!');
+      // Ambas reinas se quedan
+      return { doubleShantay: true, queens: bottomQueens };
+    } else {
+      // La reina con el puntaje de lipsync más bajo es eliminada
+      let eliminatedQueen = bottomQueens.pop(); // Usa pop para obtener el último elemento (puntaje más bajo)
+      eliminatedQueen.isActive = false; // Actualiza el estado isActive a falso para la reina eliminada
+      eliminatedQueen.currentPlacement = 'ELIM'; // Actualiza la colocación actual a 'ELIM'
+      eliminatedQueen.trackRecord[eliminatedQueen.trackRecord.length - 1] = 'ELIM'; // Actualiza el track record a 'ELIM'
+
+      return { winner: bottomQueens[0], eliminatedQueen }; // Devuelve la ganadora y la reina eliminada
+    }
   } else {
-    return null; // Return null if there's no lipsync battle
+    return null; // Devuelve null si no hay batalla de lipsync
   }
 }
-
 
 // Define the currentChallenge, previousChallenges, and selectedChallenges variables globally
 let currentChallenge;
@@ -456,7 +506,6 @@ function describePerformance(queen) {
   // Define a function to get the personalized message based on the challenge and placement
   function getPersonalizedMessage(queen, challenge, placement) {
     // Log the challenge name and placement to debug
-    console.log('Challenge:', challenge.name, 'Placement:', placement);
     const challengePlacementMessages = {
       'Acting': {
         'WIN': "Tonight, you turned the stage into a scene-stealing spectacle. Condragulations, you're the winner of this weeks challenge!",
@@ -520,6 +569,14 @@ function describePerformance(queen) {
         'SAFE': "You held character well, but next time, snatch us up with your charisma.",
         'LOW': "Your portrayal was barely passable, teetering on the edge of obscurity. To prevail, you must embody the persona or risk vanishing into the shadows.",
         'BTM2': "The spotlight's glare is unforgiving. Snatch victory from the jaws of defeat or be eclipsed by the true stars."
+      },
+      'Girl Group': {
+        'WIN': "You're the superstar of the stage! Your performance was harmonious perfection, you're the winner week's challenge!",
+        'TOP2': "Your verse and song was so catchy that we can't get it out of our heads! You are the top 2 queen of the week",
+        'HIGH': "Your vocals and moves were almost flawless, and you stood out in your group. You're just a step away from the spotlight!",
+        'SAFE': "You blended well with the band, but to lead the charts, you'll need to crank up the volume on your star power.",
+        'LOW': "You hit a few off notes and your dance moves were out of sync. To avoid the bottom, you need to fine-tune your performance.",
+        'BTM2': "Your performance was out of harmony, and you faded into the background. It's time to amp it up or face the final curtain call."
       }
     };
   // Concatenate the queen's name with the personalized message
@@ -548,11 +605,24 @@ const host = {
   challengeAnnouncement.style.marginBottom = '2em'; // Increase space after the announcement
 },
   // Updated announcePerformances method
-  announcePerformances(queens) {
+  announcePerformances(queens, episode, isDoublePremiere, groupOne, groupTwo) {
     const performancesList = document.getElementById('performancesList');
-    performancesList.innerHTML = ''; // Clear existing performances
+    performancesList.innerHTML = ''; // Limpia las performances existentes
   
-    queens.forEach(queen => {
+    let queensToDisplay;
+    if (isDoublePremiere) {
+      queensToDisplay = episode === 1 ? groupOne : groupTwo;
+    } else {
+      queensToDisplay = queens;
+    }
+  
+    // Verifica que queensToDisplay no sea undefined antes de continuar
+    if (!queensToDisplay) {
+      console.error('Error: queensToDisplay es undefined. Verifica las variables groupOne y groupTwo.');
+      return; // Salir de la función si queensToDisplay es undefined
+    }
+  
+    queensToDisplay.forEach(queen => {
       // Create a list item for each performance
       const listItem = document.createElement('li');
       listItem.style.display = 'flex'; // Use flexbox to align items side by side
@@ -588,40 +658,47 @@ const host = {
     });
   },
 // Updated announcePlacements method with challenge-specific messages for each placement
-announcePlacements(queens) {
+announcePlacements(queens, episode, isDoublePremiere, groupOne, groupTwo) {
   const placementsList = document.getElementById('placementsList');
-  placementsList.innerHTML = ''; // Clear the stage for today's stars
+  placementsList.innerHTML = ''; // Limpia los placements existentes
 
-  // Filter out only active queens
-  let activeQueens = queens.filter(queen => queen.isActive);
+  let queensToDisplay;
+  if (isDoublePremiere && (episode === 1 || episode === 2)) {
+    queensToDisplay = episode === 1 ? groupOne : groupTwo;
+  } else {
+    queensToDisplay = queens.filter(queen => queen.isActive);
+  }
 
-  // Custom sort function to order queens by placement
-  activeQueens.sort((a, b) => {
-    const placementOrder = ['HIGH', 'WIN', 'SAFE', 'LOW', 'BTM2'];
-    return placementOrder.indexOf(a.currentPlacement) - placementOrder.indexOf(b.currentPlacement);
-  });
+  // Verifica que queensToDisplay no sea undefined antes de continuar
+  if (!queensToDisplay) {
+    console.error('Error: queensToDisplay es undefined. Verifica las variables groupOne y groupTwo.');
+    return; // Salir de la función si queensToDisplay es undefined
+  }
 
-  // After sorting, manually adjust the order to match the desired sequence
-  // Find the index of the first HIGH and first BTM2 queens
-  let firstHighIndex = activeQueens.findIndex(queen => queen.currentPlacement === 'HIGH');
-  let firstBtm2Index = activeQueens.findIndex(queen => queen.currentPlacement === 'BTM2');
+  // Ordena las reinas activas por su puntuación de actuación
+  queensToDisplay.sort((a, b) => b.performanceScore - a.performanceScore);
 
-  // Move the WIN queen to the second position
-  let winQueen = activeQueens.find(queen => queen.currentPlacement === 'WIN');
-  activeQueens = activeQueens.filter(queen => queen.currentPlacement !== 'WIN');
-  activeQueens.splice(1, 0, winQueen);
+  // Asigna 'WIN', 'TOP2' y 'SAFE' a las reinas activas si es doble premiere
+  if (isDoublePremiere && (episode === 1 || episode === 2)) {
+    queensToDisplay[0].currentPlacement = 'WIN';
+    if (queensToDisplay.length > 1) {
+      queensToDisplay[1].currentPlacement = 'TOP2';
+    }
+    for (let i = 2; i < queensToDisplay.length; i++) {
+      queensToDisplay[i].currentPlacement = 'SAFE';
+    }
+  } else {
+    activeQueens = queens.filter(queen => queen.isActive);
+    // Custom sort function to order queens by placement
+    activeQueens.sort((a, b) => {
+      const placementOrder = ['HIGH', 'WIN', 'SAFE', 'LOW', 'BTM2'];
+      return placementOrder.indexOf(a.currentPlacement) - placementOrder.indexOf(b.currentPlacement);
+    });
+    
+  }
 
-  // Move the first HIGH queen to the first position
-  let firstHighQueen = activeQueens.splice(firstHighIndex, 1)[0];
-  activeQueens.unshift(firstHighQueen);
-
-  // Move the first BTM2 queen to the last position
-  let firstBtm2Queen = activeQueens.splice(firstBtm2Index, 1)[0];
-  activeQueens.push(firstBtm2Queen);
-
-  // Now create list items for each queen in the sorted order
-  activeQueens.forEach(queen => {
-    // Create a list item for each queen's placement
+  queensToDisplay.forEach(queen => {
+    // Crea un elemento de lista para cada colocación de la reina
     const listItem = document.createElement('li');
     listItem.style.display = 'flex'; // Use flexbox to align items side by side
     listItem.style.alignItems = 'center'; // Center items vertically
@@ -656,12 +733,17 @@ announcePlacements(queens) {
         listItem.style.color = 'white';
         listItem.style.fontWeight = 'bold';
         break;
-      case 'HIGH':
-        listItem.style.backgroundColor = 'lightblue';
+      case 'TOP2':
+        listItem.style.backgroundColor = 'yellow';
         listItem.style.color = 'black';
+        listItem.style.fontWeight = 'bold';
         break;
       case 'SAFE':
         listItem.style.backgroundColor = 'cornsilk';
+        listItem.style.color = 'black';
+        break;
+      case 'HIGH':
+        listItem.style.backgroundColor = 'lightblue';
         listItem.style.color = 'black';
         break;
       case 'LOW':
@@ -679,11 +761,13 @@ announcePlacements(queens) {
     // Append the list item to the list
     placementsList.appendChild(listItem);
   });
+  console.log('Placements anunciados en pantalla.');
+  document.getElementById('placementsScreen').style.display = 'block';
 },
 
 
 // Method to announce the lipsync results
-announceLipsyncResults(winner, eliminatedQueen) {
+announceLipsyncResults(winner, eliminatedQueen, doubleShantay = false) {
   const lipsyncResultsList = document.getElementById('lipsyncResultsList');
   lipsyncResultsList.innerHTML = ''; // Clear the stage for the lipsync battle
 
@@ -721,13 +805,24 @@ announceLipsyncResults(winner, eliminatedQueen) {
     return listItem;
   }
 
-  // Announce the winner with praise
-  const winnerAnnouncement = createLipsyncListItem(winner, `${winner.name}, shantay you stay!`, 'lightgreen');
-  lipsyncResultsList.appendChild(winnerAnnouncement);
+// Si es un doble shantay, anuncia que ambas reinas se quedan
+if (doubleShantay) {
+  // Crea un anuncio para cada reina
+  const queen1Announcement = createLipsyncListItem(winner, 'Shantay, you BOTH stay!', 'hotpink');
+  const queen2Announcement = createLipsyncListItem(eliminatedQueen, 'Shantay, you BOTH stay!', 'hotpink');
+  
+  // Añade los anuncios a la lista de resultados
+  lipsyncResultsList.appendChild(queen1Announcement);
+  lipsyncResultsList.appendChild(queen2Announcement);
+} else {
+    // Anuncia la ganadora con elogios
+    const winnerAnnouncement = createLipsyncListItem(winner, `${winner.name}, shantay you stay!`, 'lightgreen');
+    lipsyncResultsList.appendChild(winnerAnnouncement);
 
-  // Announce the eliminated queen with a heartfelt farewell
-  const eliminatedAnnouncement = createLipsyncListItem(eliminatedQueen, `${eliminatedQueen.name}, sashay away.`, 'lightcoral');
-  lipsyncResultsList.appendChild(eliminatedAnnouncement);
+    // Anuncia a la reina eliminada con una despedida sincera
+    const eliminatedAnnouncement = createLipsyncListItem(eliminatedQueen, `${eliminatedQueen.name}, sashay away.`, 'lightcoral');
+    lipsyncResultsList.appendChild(eliminatedAnnouncement);
+  }
 },
 // Method to announce the finale results
 announceFinaleResults(topThree, eliminatedQueen, winner) {
@@ -771,7 +866,6 @@ const states = {
     ANNOUNCE_CHALLENGE: 'announce_challenge',
     PERFORMANCES: 'performances',
     PLACEMENTS: 'placements',
-    LIPSYNC_PREP: 'lipsync_prep',
     LIPSYNC: 'lipsync',
     FINALE: 'finale'
   };
@@ -782,7 +876,6 @@ let currentState = states.NEW_EPISODE;
 // Function to get active queens for the episode
 function getActiveQueens(cast) {
   const activeQueens = cast.filter(queen => queen.isActive);
-  console.log('Active Queens:', activeQueens.map(queen => queen.name));
   return activeQueens;
 }
 
@@ -797,7 +890,7 @@ function handleContinue() {
     document.getElementById('lipsyncResultsScreen').style.display = 'none';
     // ... hide other screens ...
     }
-
+    console.log('Estado actual antes del switch:', currentState);
     switch (currentState) {
       case states.NEW_EPISODE:
         handleNewEpisode(); // Call handleNewEpisode to set up the first episode
@@ -808,63 +901,83 @@ function handleContinue() {
         document.getElementById('castScreen').style.display = 'block';
         currentState = states.ANNOUNCE_CHALLENGE;
         break;
-      case states.ANNOUNCE_CHALLENGE:
-        hideAllScreens();
-        host.announceChallenge(currentChallenge);
-        document.getElementById('challengeScreen').style.display = 'block';
-        currentState = states.PERFORMANCES;
-        break;
-      case states.PERFORMANCES:
-        hideAllScreens();
-        simulateChallenge(queensInEpisode, currentChallenge); // Call simulateChallenge here
-        host.announcePerformances(queensInEpisode);
-        document.getElementById('performancesScreen').style.display = 'block';
-        currentState = states.PLACEMENTS;
-        break;
-      case states.PLACEMENTS:
-        hideAllScreens();
-        determinePlacements(queensInEpisode); 
-        host.announcePlacements(queensInEpisode);
-        document.getElementById('placementsScreen').style.display = 'block';
-        currentState = states.LIPSYNC_PREP;
-        break;
-      case states.LIPSYNC_PREP:
-        lipsyncResult = lipsyncAndElimination(queensInEpisode); // Assign the result to lipsyncResult
+        case states.ANNOUNCE_CHALLENGE:
+          hideAllScreens();
+          // Check if it's a double premiere and if the episode is 1 or 2
+          if (isDoublePremiere && (episode === 1 || episode === 2)) {
+            // Set the current challenge to "Girl Group"
+            currentChallenge = challenges.find(challenge => challenge.name === 'Girl Group');
+          }
+          host.announceChallenge(currentChallenge);
+          document.getElementById('challengeScreen').style.display = 'block';
+          currentState = states.PERFORMANCES;
+          break;
+        case states.PERFORMANCES:
+          hideAllScreens();
+          simulateChallenge(queensInEpisode, currentChallenge, episode); // Simula aquí
+          host.announcePerformances(queensInEpisode, episode, isDoublePremiere, groupOne, groupTwo);
+          document.getElementById('performancesScreen').style.display = 'block';
+          currentState = states.PLACEMENTS;
+          break;
+          case states.PLACEMENTS:
+            hideAllScreens();
+            if (isDoublePremiere && (episode === 1 || episode === 2)) {
+              // Maneja los placements para la doble premiere sin simular nuevamente
+              handleDoublePremierePlacements(queensInEpisode, episode, groupOne, groupTwo, true); // Añade un parámetro para evitar la simulación
+              // Asegúrate de llamar a announcePlacements y mostrar la pantalla de placements para doble premiere
+              host.announcePlacements(queensInEpisode, episode, isDoublePremiere, groupOne, groupTwo);
+              document.getElementById('placementsScreen').style.display = 'block';
+            } else {    
+              determinePlacements(queensInEpisode); // Asegúrate de que esta función no llame a simulateChallenge
+              host.announcePlacements(queensInEpisode, episode, isDoublePremiere, groupOne, groupTwo);
+              document.getElementById('placementsScreen').style.display = 'block';
+            }
         currentState = states.LIPSYNC;
         break;
         case states.LIPSYNC:
           hideAllScreens();
-          if (lipsyncResult && lipsyncResult.winner && lipsyncResult.eliminatedQueen) {
-            host.announceLipsyncResults(lipsyncResult.winner, lipsyncResult.eliminatedQueen);
-            updateTrackRecord(cast, episode); // Update the track record table here
-            displayCast(queensInEpisode, episode); // Display cast with updated comments
+          // Combina la lógica de lipsyncAndElimination aquí
+          lipsyncResult = lipsyncAndElimination(queensInEpisode); // Asigna el resultado a lipsyncResult
+          if (lipsyncResult) {
+            if (lipsyncResult.doubleShantay) {
+              // Anuncia un doble shantay
+              host.announceLipsyncResults(lipsyncResult.queens[0], lipsyncResult.queens[1], true);
+            } else if (lipsyncResult.winner && lipsyncResult.eliminatedQueen) {
+              // Anuncia los resultados del lipsync normal
+              host.announceLipsyncResults(lipsyncResult.winner, lipsyncResult.eliminatedQueen);
+            }
+            updateTrackRecord(cast, episode); // Actualiza la tabla de track record aquí
+            displayCast(queensInEpisode, episode); // Muestra el elenco con comentarios actualizados
           } else {
-            console.log('Lipsync battle did not occur or there was an error.');
+            console.log('No lipsync battle occurred.');
           }
           document.getElementById('lipsyncResultsScreen').style.display = 'block';
-      
-          // Check if it's time for the finale or if we should start a new episode
+        
+          // Verifica si es hora de la final o si deberíamos comenzar un nuevo episodio
           const updatedActiveQueens = getActiveQueens(cast);
-          console.log('Number of active queens:', updatedActiveQueens.length);
-      
+        
           if (updatedActiveQueens.length === 4) {
-            console.log('Transitioning to the finale...');
             currentState = states.FINALE;
-            handleFinale(cast); // Pass the cast array to handleFinale
+            handleFinale(cast); // Pasa el array de cast a handleFinale
           } else {
-          
             console.log('Starting Episode ' + episode);
-            episode++; // Increment the episode number for the next episode
-            handleNewEpisode(); // Call handleNewEpisode to start a new episode
+            episode++; // Incrementa el número del episodio para el próximo episodio
+            handleNewEpisode(); // Llama a handleNewEpisode para comenzar un nuevo episodio
           }
           break;
-      default:
-        console.log('Unhandled state:', currentState);
-    }
+        default:
+          console.log('Unhandled state:', currentState);
+        }
+        console.log('Estado actual después del switch:', currentState);
   }
+  
 // Function to start the simulation
-function simulateSeason(cast) {
-  // Start the simulation by displaying the cast
+function simulateSeason() {
+  // Pregunta al usuario si quiere una doble premiere al inicio de la temporada
+  let userChoice = confirm('Double Premiere');
+  setupDoublePremiere(userChoice);
+
+  // Continúa con la simulación
   handleContinue();
 }
 
@@ -1000,56 +1113,64 @@ function sortQueensByPlacement(queens) {
         // Only add cells up to the current episode
         if (index < episode || episode === 'Finale') {
           let placementCell = document.createElement('td');
-          placementCell.textContent = placement;
-          // Apply colors and styles based on the placement
-        switch (placement) {
-        case 'WIN':
-            placementCell.style.backgroundColor = 'royalblue';
-            placementCell.style.color = 'white';
-            placementCell.style.fontWeight = 'bold';
-            break;
-        case 'HIGH':
-            placementCell.style.backgroundColor = 'lightblue';
-            break;
-        case 'SAFE':
-            placementCell.style.backgroundColor = 'white';
-            break;
-        case 'LOW':
-            placementCell.style.backgroundColor = 'lightpink';
-            break;
-        case 'BTM2':
-            placementCell.style.backgroundColor = 'tomato';
-            placementCell.style.color = 'black';
-            break;
-        case 'ELIM':
-            placementCell.style.backgroundColor = 'red';
-            placementCell.style.color = 'black';
-            placementCell.style.fontWeight = 'bold';
-            break;
-        case 'WINNER':
-            placementCell.style.backgroundColor = '#D4AF37'; // Gold color for the winner
-            placementCell.style.color = 'black';
-            placementCell.style.fontWeight = 'bold';
-            break;
-            case 'ELIMINATED':
+          if (placement === null) {
+            // Si el placement es null, aplica un fondo gris para representar un espacio vacío
+            placementCell.style.backgroundColor = 'lightgray';
+          } else {
+            placementCell.textContent = placement;
+            // Apply colors and styles based on the placement
+            switch (placement) {
+              case 'WIN':
+                placementCell.style.backgroundColor = 'royalblue';
+                placementCell.style.color = 'white';
+                placementCell.style.fontWeight = 'bold';
+                break;
+              case 'HIGH':
+                placementCell.style.backgroundColor = 'lightblue';
+                break;
+              case 'SAFE':
+                placementCell.style.backgroundColor = 'white';
+                break;
+              case 'LOW':
+                placementCell.style.backgroundColor = 'lightpink';
+                break;
+              case 'TOP2':
+                placementCell.style.backgroundColor = 'yellow';
+                placementCell.style.fontWeight = 'bold';
+                break;
+              case 'BTM2':
+                placementCell.style.backgroundColor = 'tomato';
+                placementCell.style.color = 'black';
+                break;
+              case 'ELIM':
+                placementCell.style.backgroundColor = 'red';
+                placementCell.style.color = 'black';
+                placementCell.style.fontWeight = 'bold';
+                break;
+              case 'WINNER':
+                placementCell.style.backgroundColor = '#D4AF37'; // Gold color for the winner
+                placementCell.style.color = 'black';
+                placementCell.style.fontWeight = 'bold';
+                break;
+              case 'ELIMINATED':
                 placementCell.style.backgroundColor = 'sienna'; // Sienna color for the eliminated queen
                 placementCell.style.color = 'white';
                 placementCell.style.fontWeight = 'bold';
                 break;
-        case 'RUNNER UP':
-            placementCell.style.backgroundColor = 'silver'; // Silver color for the runner up
-            placementCell.style.color = 'black';
-            placementCell.style.fontWeight = 'bold';
-            break;
-        default:
-            placementCell.style.backgroundColor = 'white'; // Default background for unexpected values
+              case 'RUNNER UP':
+                placementCell.style.backgroundColor = 'silver'; // Silver color for the runner up
+                placementCell.style.color = 'black';
+                placementCell.style.fontWeight = 'bold';
+                break;
+              default:
+                placementCell.style.backgroundColor = 'white'; // Default background for unexpected values
+            }
+          }
+          queenRow.appendChild(placementCell);
         }
-    
-        queenRow.appendChild(placementCell);
-      }
+      });
     });
-  });
-}
+  }
 
   function handleFinale(cast) {
     // Filter out only active queens
@@ -1127,3 +1248,74 @@ function createCastSelectionScreen() {
 // Call this function when the page loads or when you want to display the cast selection
 createCastSelectionScreen();
 
+// Función para configurar la doble premiere al inicio de la temporada
+function setupDoublePremiere(userChoice) {
+  isDoublePremiere = userChoice;
+  if (isDoublePremiere) {
+    // Divide el cast en dos grupos para los episodios 1 y 2
+    divideCastForDoublePremiere();
+  }
+}
+// Función para dividir el cast en dos grupos
+function divideCastForDoublePremiere() {
+  let halfIndex = Math.ceil(cast.length / 2);
+  groupOne = cast.slice(0, halfIndex);
+  groupTwo = cast.slice(halfIndex);
+  // Asegúrate de asignar el grupo correcto a queensInEpisode según el episodio
+  queensInEpisode = episode === 1 ? groupOne : groupTwo;
+}
+
+// Función para manejar los placements durante la doble premiere
+function handleDoublePremierePlacements(queensInEpisode, episode, groupOne, groupTwo, alreadySimulated = false) {
+  let activeQueens = queensInEpisode.filter(queen => {
+    let group = episode === 1 ? groupOne : groupTwo;
+    return group.includes(queen);
+  });
+
+  // Solo simula si no se ha hecho previamente
+  if (!alreadySimulated) {
+    simulateChallenge(activeQueens, currentChallenge, episode);
+  }
+
+  // Ordena las reinas activas por su puntuación de actuación
+  activeQueens.sort((a, b) => b.performanceScore - a.performanceScore);
+
+  // Asigna 'WIN' y 'TOP2' a las dos mejores reinas activas
+  activeQueens[0].currentPlacement = 'WIN';
+  activeQueens[0].favoritismPoints += 5; // Agrega 5 puntos de favoritismo a la reina ganadora
+  if (activeQueens.length > 1) {
+    activeQueens[1].currentPlacement = 'TOP2';
+    activeQueens[1].favoritismPoints += 4; // Agrega 4 puntos de favoritismo a la reina en el TOP2
+  }
+
+  // El resto de las reinas activas quedan 'SAFE' y no reciben puntos de favoritismo
+  for (let i = 2; i < activeQueens.length; i++) {
+    activeQueens[i].currentPlacement = 'SAFE';
+  }
+
+  // Actualiza el track record solo para las queens activas
+  updateTrackRecordForDoublePremiere(queensInEpisode, episode, groupOne, groupTwo);
+}
+
+// Función para actualizar el track record durante la doble premiere
+function updateTrackRecordForDoublePremiere(queens, episode, groupOne, groupTwo) {
+  console.log('Actualizando track record para la doble premiere, episodio:', episode);
+  // Determina qué grupo de queens está activo para el episodio actual
+  let activeGroup = episode === 1 ? groupOne : groupTwo;
+  console.log('Grupo activo para el episodio ' + episode + ':', activeGroup.map(q => q.name));
+  // Asegúrate de que el track record tenga la longitud correcta para cada queen
+  queens.forEach(queen => {
+    while (queen.trackRecord.length < episode) {
+      queen.trackRecord.push(null); // Usa null para representar un espacio vacío con color gris
+    }
+    // Actualiza el track record solo si la queen está en el grupo activo
+    if (activeGroup.includes(queen)) {
+      queen.trackRecord[episode - 1] = queen.currentPlacement;
+    }
+  });
+
+  // Verifica el track record después de la actualización
+  queens.forEach(queen => {
+    console.log(queen.name + ' track record:', queen.trackRecord);
+  });
+}
