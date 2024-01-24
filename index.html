@@ -5,9 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RuPaul's Drag Race Simulator</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <style>
   body {
     font-family: 'Roboto', sans-serif;
+    background-image: url(bg.png);
     background-color: #f9f9f9;
     margin: 0;
     padding: 0;
@@ -19,7 +21,7 @@
     margin-top: 20px;
   }
   button#continueButton {
-    background-color: #e91e63;
+    background-color: #FF69B4;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -28,9 +30,11 @@
     font-size: 1em;
     display: block;
     margin: 20px auto;
+    transition: transform 0.3s;
   }
   button#continueButton:hover {
-    background-color: #c2185b;
+    background-color: #FF1493;
+    transform: scale(1.1);
   }
   .announcement {
     margin: 1em auto;
@@ -75,7 +79,7 @@
   }
   .wikitable th, .wikitable td {
     border: 1px solid #a2a9b1;
-    padding: 0.2em 0.4em;
+    padding: 0.5em 0.5em;
   }
   .wikitable th {
     background-color: #eaecf0;
@@ -95,7 +99,7 @@ body {
 
 /* Styles for the announcement sections */
 .announcement {
-  width: 80%; /* Set a max-width for the content */
+  width: 100%; /* Set a max-width for the content */
   margin: 1em 0;
   padding: 1em;
   background-color: white;
@@ -153,22 +157,31 @@ h1 {
 </style>
 </head>
 <body>
-    <h1>RuPaul's Drag Race Simulator</h1>
+  <div id="mainContainer" style="background-color: white; padding: 20px; border-radius: 15px; width: 80%; margin: auto; margin-top: 50px;">
+    <div id="startScreen">
+      <h1>RuPaul's Drag Race Simulator</h1>
+    </div>
     <button id="continueButton">Start Season</button>
+    <!-- Rest of your HTML... -->
+  </div>
     
     <!-- Cast Selection Screen -->
-<div class="announcement" id="castSelectionScreen">
-  <h2>Select a Cast</h2>
-  <button class="castSelectButton" onclick="selectCast('Season 1')">Season 1</button>
-  <button class="castSelectButton" onclick="selectCast('Season 2')">Season 2</button>
-  <button class="castSelectButton" onclick="selectCast('Season 3')">Season 3</button>
-  <!-- Add more buttons for additional seasons -->
-</div>
+    <div class="announcement" id="castSelectionScreen" style="display: flex; flex-direction: column; align-items: center;">
+      <h2>Select a Cast</h2>
+      <div>
+        <button class="castSelectButton" onclick="selectCast('Season 1')">Season 1</button>
+        <button class="castSelectButton" onclick="selectCast('Season 2')">Season 2</button>
+        <button class="castSelectButton" onclick="selectCast('Season 3')">Season 3</button>
+        <button class="castSelectButton" onclick="selectCast('Season 4')">Season 4</button>
+      </div>
+      <!-- Add more buttons for additional seasons -->
+    </div>
+  </div>
 
 <!-- Add this style to your existing <style> tag -->
 <style>
   .castSelectButton {
-    background-color: #4CAF50; /* Green */
+    background-color: #c538be; /* Green */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -178,7 +191,8 @@ h1 {
     margin: 10px;
   }
   .castSelectButton:hover {
-    background-color: #45a049; /* Darker green */
+    background-color: #FF1493;
+    transform: scale(1.1);
   }
   
   #doublePremiereToggle {

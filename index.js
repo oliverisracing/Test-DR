@@ -7,6 +7,7 @@ let doubleShantayHappened = false;
 let groupOne = [];
 let groupTwo = [];
 let episode = 1;
+console.log(`Número del episodio: ${episode}`);
 class Queen {
   constructor(name, acting, improv, comedy, dance, design, rusical, makeover, branding, lipsync, music, image) {
     this.name = name;
@@ -54,6 +55,23 @@ let mrmime = new Queen('Mr. Mime', 15, 10, 8, 3, 9, 14, 10, 11, 10, 9, 'https://
 let malamar = new Queen('Malamar', 10, 10, 10, 10, 10, 10, 10, 10, 10, 6, 'https://img.pokemondb.net/sprites/sword-shield/normal/malamar.png');
 
 let castSeason1 = [primarina, gardevoir, lopunny, milotic, mismagius, jynx, lapras, blissey, hatterene, vespiqueen, salazzle, mawile, gothitelle, mrmime, malamar].map(queen => ({ ...queen, isActive: true }));
+
+let angewomon = new Queen('Angewomon', 8, 7, 10, 10, 11, 12, 12, 8, 9, 11, 'https://static.wikia.nocookie.net/digimon/images/0/06/Angewomon_vb.png/revision/latest?cb=20231028034633');
+let ladydevimon = new Queen('LadyDevimon', 10, 13, 13, 10, 13, 11, 13, 13, 13, 12, 'LadyDevimon image URL');
+let lillymon = new Queen('Lillymon', 10, 8, 9, 16, 8, 14, 10, 10, 15, 15, 'Lillymon image URL');
+let rosemon = new Queen('Rosemon', 11, 11, 10, 7, 15, 10, 15, 7, 12, 10, 'https://static.wikia.nocookie.net/digimon/images/e/e1/Rosemon_vb.png/revision/latest?cb=20230822013119');
+let sakuyamon = new Queen('Sakuyamon', 9, 12, 11, 14, 9, 7, 11, 12, 11, 9, 'Sakuyamon image URL');
+let minervamon = new Queen('Minervamon', 6, 7, 7, 8, 7, 7, 5, 5, 11, 4, 'Minervamon image URL');
+let magnadramon = new Queen('Magnadramon', 10, 10, 10, 4, 8, 14, 9, 6, 10, 10, 'Magnadramon image URL');
+let ophanimon = new Queen('Ophanimon', 13, 15, 14, 9, 8, 11, 8, 11, 9, 12, 'Ophanimon image URL');
+let mastemon = new Queen('Mastemon', 11, 11, 8, 8, 10, 14, 8, 15, 13, 9, 'https://pbs.twimg.com/ext_tw_video_thumb/1487242096457224192/pu/img/R_dp4euccfSxja0m.jpg');
+let marineangemon = new Queen('MarineAngemon', 15, 11, 9, 9, 11, 13, 13, 6, 7, 7, 'MarineAngemon image URL');
+let zephyrmon = new Queen('Zephyrmon', 4, 6, 9, 10, 10, 10, 10, 6, 7, 10, 'Zephyrmon image URL');
+let mervamon = new Queen('Mervamon', 7, 8, 9, 9, 11, 13, 13, 8, 8, 6, 'Mervamon image URL');
+let thetismon = new Queen('Thetismon', 12, 12, 6, 9, 7, 7, 10, 6, 7, 9, 'Thetismon image URL');
+let ranamon = new Queen('Ranamon', 15, 10, 8, 3, 9, 14, 10, 11, 10, 9, 'Ranamon image URL');
+
+let castSeason4 = [angewomon, ladydevimon, lillymon, rosemon, sakuyamon, minervamon, magnadramon, ophanimon, mastemon, marineangemon, zephyrmon, mervamon, thetismon, ranamon].map(queen => ({ ...queen, isActive: true }));
 
 let pikachu = new Queen('Pikachu', 10, 9, 8, 13, 10, 12, 11, 10, 14, 'https://img.pokemondb.net/sprites/sword-shield/normal/pikachu.png');
 let charizard = new Queen('Charizard', 12, 11, 10, 15, 13, 14, 12, 11, 13, 'https://img.pokemondb.net/sprites/sword-shield/normal/charizard.png');
@@ -231,18 +249,18 @@ function calculatePerformance(queen, challengeStat, isActiveForEpisode) {
 }
 
 
-// Define challenge types
 const challenges = [
-  { name: 'Acting', trait: 'acting', description: 'Queens must deliver Oscar-worthy performances in a scripted drama.' },
-  { name: 'Improv', trait: 'improv', description: 'Unscripted scenes where quick wit and adaptability reign supreme.' },
-  { name: 'Comedy', trait: 'comedy', description: 'Stand-up routines that leave the audience in stitches are the goal.' },
-  { name: 'Dance', trait: 'dance', description: 'A choreographed number that showcases each queens rhythm and grace.' },
-  { name: 'Design', trait: 'design', description: 'Fashion design challenge to create stunning outfits from unconventional materials.' },
-  { name: 'Rusical', trait: 'rusical', description: 'A musical extravaganza where queens sing and dance in a Broadway-style show.' },
-  { name: 'Makeover', trait: 'makeover', description: 'Transforming others into drag superstars through makeup and costume.' },
-  { name: 'Branding', trait: 'branding', description: 'Developing a personal brand and marketing it effectively to stand out.' },
-  { name: 'Snatch', traits: ['comedy', 'improv'], description: 'A celebrity impersonation game that tests queens on humor and impersonation skills.' },
-  { name: 'Girl Group', trait: 'music', description: 'Queens form girl groups to perform a catchy song and choreography, showcasing their musical and teamwork skills.' }
+  { name: 'Acting', trait: 'acting', description: 'Queens must deliver Oscar-worthy performances in a scripted drama. They need to embody their characters and captivate the audience with their acting prowess.' },
+  { name: 'Improv', trait: 'improv', description: 'Unscripted scenes where quick wit and adaptability reign supreme. Queens must think on their feet and use their creativity to make the scene hilarious and entertaining.' },
+  { name: 'Comedy', trait: 'comedy', description: 'Stand-up routines that leave the audience in stitches are the goal. Queens must craft a routine that showcases their humor and comedic timing.' },
+  { name: 'Dance', trait: 'dance', description: 'A choreographed number that showcases each queens rhythm and grace. The queens must learn and execute a dance routine, demonstrating their ability to move and entertain.' },
+  { name: 'Design', trait: 'design', description: 'Fashion design challenge to create stunning outfits from unconventional materials. Queens must use their creativity and design skills to transform everyday items into high fashion.' },
+  { name: 'Rusical', trait: 'rusical', description: 'A musical extravaganza where queens sing and dance in a Broadway-style show. Queens must showcase their vocal talent and stage presence to deliver a show-stopping performance.' },
+  { name: 'Makeover', trait: 'makeover', description: 'Transforming others into drag superstars through makeup and costume. Queens must use their makeup skills and fashion sense to give someone a complete drag makeover.' },
+  { name: 'Branding', trait: 'branding', description: 'Developing a personal brand and marketing it effectively to stand out. Queens must create a unique and memorable brand, and then create a marketing campaign to promote it.' },
+  { name: 'Snatch', traits: ['comedy', 'improv'], description: 'A celebrity impersonation game that tests queens on humor and impersonation skills. Queens must choose a celebrity to impersonate, and then deliver a performance that is both funny and accurate.' },
+  { name: 'Ball', trait: 'design', description: 'A high fashion extravaganza where queens must design and model three different looks.' },
+  { name: 'Girl Group', trait: 'music', description: 'Queens form girl groups to perform a catchy song and choreography, showcasing their musical and teamwork skills. They must work together to deliver a cohesive and entertaining performance.' }
 ];
 
 
@@ -284,30 +302,44 @@ function determinePlacements(queens, episode) {
     }
     return queen.isActive;
   });
-  // Assign placements based on the sorted order and number of active queens
-    if (activeQueens.length > 5) {
-      activeQueens[0].currentPlacement = 'WIN';
-      activeQueens[1].currentPlacement = 'HIGH';
-      activeQueens[2].currentPlacement = 'HIGH';
-      // Mark the rest as SAFE until the last three
-      for (let i = 3; i < activeQueens.length - 3; i++) {
-        activeQueens[i].currentPlacement = 'SAFE';
-      }
-      // The queen with the third-lowest score gets 'LOW'
-      activeQueens[activeQueens.length - 3].currentPlacement = 'LOW';
-      // The two queens with the lowest scores get 'BTM2'
-      activeQueens[activeQueens.length - 2].currentPlacement = 'BTM2';
-      activeQueens[activeQueens.length - 1].currentPlacement = 'BTM2';
-    } else {
-      // With 5 or fewer queens, only 'WIN', 'HIGH', and 'BTM2' placements are assigned
-      activeQueens[0].currentPlacement = 'WIN';
-      activeQueens[1].currentPlacement = 'HIGH';
-      activeQueens[2].currentPlacement = 'HIGH';
-      // The two queens with the lowest scores get 'BTM2'
-      activeQueens[activeQueens.length - 2].currentPlacement = 'BTM2';
-      activeQueens[activeQueens.length - 1].currentPlacement = 'BTM2';
+// Asigna los placements basándose en el orden ordenado y el número de reinas activas
+if (activeQueens.length > 5) {
+// Genera un número aleatorio entre 1 y 100
+let randomNumber = Math.floor(Math.random() * 100) + 1;
+// Comprueba si las dos reinas con mayor puntaje tienen un puntaje mayor que 10 y si el número aleatorio es mayor que 60
+if (activeQueens[0].performanceScore > 15 && activeQueens[1].performanceScore > 15 && randomNumber > 85) {
+  // Si ambas condiciones se cumplen, ambas reinas ganan
+  activeQueens[0].currentPlacement = 'WIN';
+  activeQueens[1].currentPlacement = 'WIN';
+
+    activeQueens[2].currentPlacement = 'HIGH';
+    // Marca el resto como SAFE hasta los últimos tres
+    for (let i = 3; i < activeQueens.length - 3; i++) {
+      activeQueens[i].currentPlacement = 'SAFE';
     }
-    
+  } else {
+    activeQueens[0].currentPlacement = 'WIN';
+    activeQueens[1].currentPlacement = 'HIGH';
+    activeQueens[2].currentPlacement = 'HIGH';
+    // Marca el resto como SAFE hasta los últimos tres
+    for (let i = 3; i < activeQueens.length - 3; i++) {
+      activeQueens[i].currentPlacement = 'SAFE';
+    }
+  }
+  // La reina con el tercer puntaje más bajo obtiene 'LOW'
+  activeQueens[activeQueens.length - 3].currentPlacement = 'LOW';
+  // Las dos reinas con los puntajes más bajos obtienen 'BTM2'
+  activeQueens[activeQueens.length - 2].currentPlacement = 'BTM2';
+  activeQueens[activeQueens.length - 1].currentPlacement = 'BTM2';
+} else {
+  // Con 5 o menos reinas, solo se asignan los placements 'WIN', 'HIGH' y 'BTM2'
+  activeQueens[0].currentPlacement = 'WIN';
+  activeQueens[1].currentPlacement = 'HIGH';
+  activeQueens[2].currentPlacement = 'HIGH';
+  // Las dos reinas con los puntajes más bajos obtienen 'BTM2'
+  activeQueens[activeQueens.length - 2].currentPlacement = 'BTM2';
+  activeQueens[activeQueens.length - 1].currentPlacement = 'BTM2';
+}    
 
   // Update track record for active queens
   activeQueens.forEach(queen => {
@@ -406,7 +438,7 @@ function lipsyncAndElimination(queens) {
   assignFavoritismPointsAfterLipsync(queens);
 
     // Verifica si las puntuaciones son lo suficientemente altas para un doble shantay
-    if (!doubleShantayHappened && bottomQueens[0].lipsyncScore > 7 && bottomQueens[1].lipsyncScore > 7) {
+    if (!doubleShantayHappened && bottomQueens[0].lipsyncScore > 10 && bottomQueens[1].lipsyncScore > 10) {
       // Marca que ya ha ocurrido un doble shantay
       doubleShantayHappened = true;
       // Registra un mensaje especial para el doble shantay
@@ -433,29 +465,38 @@ let previousChallenges = [];
 let selectedChallenges = []; // Array to store the names of the challenges selected for each episode
 
 
-function selectChallenge() {
-  // Filter out challenges that were used in the last episode or used too frequently
+function selectChallenge(episode) {
+  // Los retos "Snatch", "Makeover", "Girl Group" y "BALL" solo pueden pasar 1 vez por temporada
+  let oneTimeChallenges = ['Snatch', 'Makeover', 'Girl Group', 'Ball'];
+
+  // Si es el episodio 5, el reto siempre será "BALL"
+  if (episode === 5) {
+    return challenges.find(challenge => challenge.name === 'Ball');
+  }
+
+  // Filtra los retos que fueron usados en el último episodio o usados demasiado frecuentemente
   let filteredChallenges = challenges.filter(challenge =>
     !previousChallenges.includes(challenge.name) &&
-    selectedChallenges.filter(c => c === challenge.name).length < maxOccurrences
+    selectedChallenges.filter(c => c === challenge.name).length < maxOccurrences &&
+    (!oneTimeChallenges.includes(challenge.name) || !selectedChallenges.includes(challenge.name))
   );
 
-  // If all challenges have reached their max occurrences, reset the previousChallenges array
+  // Si todos los retos han alcanzado sus máximas ocurrencias, reinicia el array previousChallenges
   if (filteredChallenges.length === 0) {
     previousChallenges = [];
-    filteredChallenges = challenges;
+    filteredChallenges = challenges.filter(challenge => !oneTimeChallenges.includes(challenge.name));
   }
 
-  // Select a random challenge from the filtered list
+  // Selecciona un reto aleatorio de la lista filtrada
   let challenge = filteredChallenges[Math.floor(Math.random() * filteredChallenges.length)];
 
-  // Update the previousChallenges array
+  // Actualiza el array previousChallenges
   if (previousChallenges.length >= maxPrevious) {
-    previousChallenges.shift(); // Remove the oldest challenge to maintain the length
+    previousChallenges.shift(); // Elimina el reto más antiguo para mantener la longitud
   }
-  previousChallenges.push(challenge.name); // Store the challenge name
+  previousChallenges.push(challenge.name); // Almacena el nombre del reto
 
-  // Store the selected challenge name for the episode headers
+  // Almacena el nombre del reto seleccionado para los encabezados de los episodios
   selectedChallenges.push(challenge.name);
 
   return challenge;
@@ -555,6 +596,13 @@ function describePerformance(queen) {
         'SAFE': "Your brand is steady, but to soar, you need to stamp it with your unique flair.",
         'LOW': "Your branding was forgettable, lost in a sea of mediocrity. Ignite the spark or be extinguished!",
         'BTM2': "It's now or never. Rebrand with a vengeance or become a footnote in the annals of branding failures."
+      },
+      'Ball': {
+        'WIN': "Your designs were the belle of the ball! Condragulations, you're the winner of this week's challenge!",
+        'HIGH': "Your looks were on point, turning heads and capturing hearts.",
+        'SAFE': "Your designs held their own, but didn't quite steal the spotlight.",
+        'LOW': "Your looks didn't quite hit the mark. It's time to step up your game!",
+        'BTM2': "Your designs fell flat. It's your last chance to bounce back or be deflated!"
       },
       'Comedy': {
         'WIN': "Your comedic timing was impeccable, leaving the audience in stitches. Condragulations, you're the winner of this weeks challenge!",
@@ -678,24 +726,29 @@ announcePlacements(queens, episode, isDoublePremiere, groupOne, groupTwo) {
   // Ordena las reinas activas por su puntuación de actuación
   queensToDisplay.sort((a, b) => b.performanceScore - a.performanceScore);
 
-  // Asigna 'WIN', 'TOP2' y 'SAFE' a las reinas activas si es doble premiere
-  if (isDoublePremiere && (episode === 1 || episode === 2)) {
-    queensToDisplay[0].currentPlacement = 'WIN';
-    if (queensToDisplay.length > 1) {
-      queensToDisplay[1].currentPlacement = 'TOP2';
-    }
-    for (let i = 2; i < queensToDisplay.length; i++) {
-      queensToDisplay[i].currentPlacement = 'SAFE';
-    }
-  } else {
-    activeQueens = queens.filter(queen => queen.isActive);
-    // Custom sort function to order queens by placement
-    activeQueens.sort((a, b) => {
-      const placementOrder = ['HIGH', 'WIN', 'SAFE', 'LOW', 'BTM2'];
-      return placementOrder.indexOf(a.currentPlacement) - placementOrder.indexOf(b.currentPlacement);
-    });
-    
+// Asigna 'WIN', 'TOP2' y 'SAFE' a las reinas activas si es doble premiere
+if (isDoublePremiere && (episode === 1 || episode === 2)) {
+  queensToDisplay[0].currentPlacement = 'WIN';
+  if (queensToDisplay.length > 1) {
+    queensToDisplay[1].currentPlacement = 'TOP2';
   }
+  if (queensToDisplay.length > 2) {
+    queensToDisplay[2].currentPlacement = 'HIGH';
+  }
+  if (queensToDisplay.length > 3) {
+    queensToDisplay[3].currentPlacement = 'HIGH';
+  }
+  for (let i = 4; i < queensToDisplay.length; i++) {
+    queensToDisplay[i].currentPlacement = 'SAFE';
+  }
+} else {
+  activeQueens = queens.filter(queen => queen.isActive);
+  // Custom sort function to order queens by placement
+  activeQueens.sort((a, b) => {
+    const placementOrder = ['HIGH', 'WIN', 'SAFE', 'LOW', 'BTM2'];
+    return placementOrder.indexOf(a.currentPlacement) - placementOrder.indexOf(b.currentPlacement);
+  });
+}
 
   queensToDisplay.forEach(queen => {
     // Crea un elemento de lista para cada colocación de la reina
@@ -881,7 +934,11 @@ function getActiveQueens(cast) {
 
 let lipsyncResult; // Declare lipsyncResult at a higher scope
 function handleContinue() {
-  // Hide all screens before showing the next one
+  // Hide the start screen and change the button text when the season starts
+  if (currentState === states.NEW_EPISODE) {
+    document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('continueButton').innerText = 'Continue';
+  }
   function hideAllScreens() {
     document.getElementById('castScreen').style.display = 'none';
     document.getElementById('challengeScreen').style.display = 'none';
@@ -1094,18 +1151,11 @@ function sortQueensByPlacement(queens) {
       let queenRow = document.createElement('tr');
       table.appendChild(queenRow);
   
-      // Add the queen's name and image
+      // Add the queen's name
       let queenNameCell = document.createElement('td');
-      let queenImage = document.createElement('img');
-      queenImage.src = queen.image; // Set the source of the image
-      queenImage.alt = `Image of ${queen.name}`; // Set the alt text
-      queenImage.style.width = '50px'; // Set a fixed width for the image
-      queenImage.style.height = 'auto'; // Maintain the aspect ratio
-      queenImage.style.marginRight = '10px'; // Add space between the image and the name
-  
-      queenNameCell.appendChild(queenImage);
       let queenNameText = document.createTextNode(queen.name);
       queenNameCell.appendChild(queenNameText);
+      queenNameCell.style.fontWeight = 'bold';
       queenRow.appendChild(queenNameCell);
   
       // Add cells for each episode's placement with styles
@@ -1192,10 +1242,11 @@ function sortQueensByPlacement(queens) {
       queen.finalPerformanceScore = calculatePerformance(queen, 'lipsync');
     });
   
-    // Combine favoritism points and final performance scores to determine the winner
-    activeQueens.forEach(queen => {
-      queen.totalScore = queen.finalPerformanceScore + queen.favoritismPoints;
-    });
+// Combine favoritism points and final performance scores to determine the winner
+// Multiply favoritismPoints by a factor to give it more weight
+activeQueens.forEach(queen => {
+  queen.totalScore = queen.finalPerformanceScore + (queen.favoritismPoints * 1.5);
+});
   
     // Sort the remaining queens by their total scores
     activeQueens.sort((a, b) => b.totalScore - a.totalScore);
@@ -1226,7 +1277,10 @@ function selectCast(season) {
       cast = castSeason2.map(queen => ({ ...queen, isActive: true }));
       break;
     case 'Season 3':
-      cast = us_season13.map(queen => ({ ...queen, isActive: true }));  
+      cast = us_season13.map(queen => ({ ...queen, isActive: true }));
+      break;
+    case 'Season 4':
+        cast = castSeason4.map(queen => ({ ...queen, isActive: true }));    
     // ... more cases for additional seasons ...
     default:
       console.error('Invalid season selection');
@@ -1258,9 +1312,16 @@ function setupDoublePremiere(userChoice) {
 }
 // Función para dividir el cast en dos grupos
 function divideCastForDoublePremiere() {
+  // Primero, mezcla el elenco con el algoritmo de Fisher-Yates
+  for (let i = cast.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [cast[i], cast[j]] = [cast[j], cast[i]];
+  }
+
   let halfIndex = Math.ceil(cast.length / 2);
   groupOne = cast.slice(0, halfIndex);
   groupTwo = cast.slice(halfIndex);
+
   // Asegúrate de asignar el grupo correcto a queensInEpisode según el episodio
   queensInEpisode = episode === 1 ? groupOne : groupTwo;
 }
@@ -1280,18 +1341,28 @@ function handleDoublePremierePlacements(queensInEpisode, episode, groupOne, grou
   // Ordena las reinas activas por su puntuación de actuación
   activeQueens.sort((a, b) => b.performanceScore - a.performanceScore);
 
-  // Asigna 'WIN' y 'TOP2' a las dos mejores reinas activas
-  activeQueens[0].currentPlacement = 'WIN';
-  activeQueens[0].favoritismPoints += 5; // Agrega 5 puntos de favoritismo a la reina ganadora
-  if (activeQueens.length > 1) {
-    activeQueens[1].currentPlacement = 'TOP2';
-    activeQueens[1].favoritismPoints += 4; // Agrega 4 puntos de favoritismo a la reina en el TOP2
-  }
+// Asigna 'WIN' y 'TOP2' a las dos mejores reinas activas
+activeQueens[0].currentPlacement = 'WIN';
+activeQueens[0].favoritismPoints += 5; // Agrega 5 puntos de favoritismo a la reina ganadora
+if (activeQueens.length > 1) {
+  activeQueens[1].currentPlacement = 'TOP2';
+  activeQueens[1].favoritismPoints += 4; // Agrega 4 puntos de favoritismo a la reina en el TOP2
+}
 
-  // El resto de las reinas activas quedan 'SAFE' y no reciben puntos de favoritismo
-  for (let i = 2; i < activeQueens.length; i++) {
-    activeQueens[i].currentPlacement = 'SAFE';
-  }
+// Asigna 'HIGH' a las dos siguientes mejores reinas activas
+if (activeQueens.length > 2) {
+  activeQueens[2].currentPlacement = 'HIGH';
+  activeQueens[2].favoritismPoints += 1; // Agrega 3 puntos de favoritismo a la reina en el TOP3
+}
+if (activeQueens.length > 3) {
+  activeQueens[3].currentPlacement = 'HIGH';
+  activeQueens[3].favoritismPoints += 1; // Agrega 3 puntos de favoritismo a la reina en el TOP4
+}
+
+// El resto de las reinas activas quedan 'SAFE' y no reciben puntos de favoritismo
+for (let i = 4; i < activeQueens.length; i++) {
+  activeQueens[i].currentPlacement = 'SAFE';
+}
 
   // Actualiza el track record solo para las queens activas
   updateTrackRecordForDoublePremiere(queensInEpisode, episode, groupOne, groupTwo);
